@@ -1,177 +1,66 @@
 {
-  "name": "Kocom Wallpad Controller with RS485",
-  "version": "1.1.1",
-  "slug": "kocom_wallpad",
-  "description": "Kocom Wallpad Controller for Homeassistant",
-  "arch": [
-    "armhf",
-    "armv7",
-    "aarch64",
-    "amd64",
-    "i386"
-  ],
-  "url": "https://github.com/HAKorea/addons",
-  "startup": "application",
-  "boot": "auto",
-  "uart": true,
-  "map": [
-    "share:rw"
-  ],
-  "options": {
-    "RS485": {
-      "type": "socket"
-    },
-    "Socket": {
-      "server": "192.168.0.9",
-      "port": 8899
-    },
-    "SocketDevice": {
-      "device": "kocom"
-    },
-    "Serial": {
-      "port1": "/dev/ttyUSB0"
-    },
-    "SerialDevice": {
-      "port1": "kocom"
-    },
-    "MQTT": {
-      "anonymous": false,
-      "server": "192.168.0.6",
-      "username": "parting321",
-      "password": "ghdwhsla1!"
-    },
-    "Wallpad": {
-      "light": true,
-      "plug": true,
-      "thermostat": true,
-      "fan": true,
-      "gas": true,
-      "elevator": true
-    },
-    "Advanced": {
-      "INIT_TEMP": 22,
-      "SCAN_INTERVAL": 300,
-      "SCANNING_INTERVAL": 0.8,
-      "DEFAULT_SPEED" : "medium",
-      "LOGLEVEL" : "info"
-    },
-    "KOCOM_LIGHT_SIZE": [
-      {
-        "name": "livingroom",
-        "number": 3
-      },
-      {
-        "name": "bedroom",
-        "number": 0
-      },
-      {
-        "name": "room1",
-        "number": 0
-      },
-      {
-        "name": "room2",
-        "number": 0
-      },
-      {
-        "name": "kitchen",
-        "number": 0
-      }
-    ],
-    "KOCOM_PLUG_SIZE": [
-      {
-        "name": "livingroom",
-        "number": 0
-      },
-      {
-        "name": "bedroom",
-        "number": 0
-      },
-      {
-        "name": "room1",
-        "number": 0
-      },
-      {
-        "name": "room2",
-        "number": 0
-      },
-      {
-        "name": "kitchen",
-        "number": 0
-      }
-    ],
-    "KOCOM_ROOM": [
-      "livingroom",
-      "bedroom",
-      "room1",
-      "room2",
-      "kitchen"
-    ],
-    "KOCOM_ROOM_THERMOSTAT": [
-      "livingroom",
-      "bedroom",
-      "room1",
-      "room2"
-    ]
+  "RS485": {
+    "type": "Socket"
   },
-  "schema": {
-    "RS485": {
-      "type": "list(Serial|Socket)"
-    },
-    "Socket": {
-      "server": "str?",
-      "port": "int?"
-    },
-    "SocketDevice": {
-      "device": "str?"
-    },
-    "Serial": {
-      "port1": "str?",
-      "port2": "str?",
-      "port3": "str?"
-    },
-    "SerialDevice": {
-      "port1": "str?",
-      "port2": "str?",
-      "port3": "str?"
-    },
-    "MQTT": {
-      "anonymous": "bool",
-      "server": "str",
-      "username": "str",
-      "password": "str"
-    },
-    "Wallpad": {
-      "light": "bool",
-      "plug": "bool",
-      "thermostat": "bool",
-      "fan": "bool",
-      "gas": "bool",
-      "elevator": "bool"
-    },
-    "Advanced": {
-      "INIT_TEMP": "int(10,30)",
-      "SCAN_INTERVAL": "int(100,1000)",
-      "SCANNING_INTERVAL": "float",
-      "DEFAULT_SPEED" : "str",
-      "LOGLEVEL" : "str"
-    },
-    "KOCOM_LIGHT_SIZE": [
-      {
-        "name": "str?",
-        "number": "int?"
-      }
-    ],
-    "KOCOM_PLUG_SIZE": [
-      {
-        "name": "str?",
-        "number": "int?"
-      }
-    ],
-    "KOCOM_ROOM": [
-      "str?"
-    ],
-    "KOCOM_ROOM_THERMOSTAT": [
-      "str?"
-    ]
-  }
+  "Socket": {
+    "server": "192.168.0.9",       // EW11의 IP
+    "port": 8899                   // EW11의 포트
+  },
+  "SocketDevice": {
+    "device": "kocom"
+  },
+  "Serial": {
+    "port1": "/dev/ttyUSB0"
+  },
+  "SerialDevice": {
+    "port1": "kocom"
+  },
+  "MQTT": {
+    "anonymous": false,
+    "server": "192.168.0.6",       // Mosquitto 브로커 IP
+    "username": "parting321",      // MQTT 사용자명
+    "password": "ghdwhsla1!"       // MQTT 비밀번호
+  },
+  "Wallpad": {
+    "light": true,
+    "plug": true,
+    "thermostat": true,
+    "fan": true,
+    "gas": true,
+    "elevator": true
+  },
+  "Advanced": {
+    "INIT_TEMP": 22,
+    "SCAN_INTERVAL": 300,
+    "SCANNING_INTERVAL": 0.8,
+    "DEFAULT_SPEED": "medium",
+    "LOGLEVEL": "info"
+  },
+  "KOCOM_LIGHT_SIZE": [
+    { "name": "livingroom", "number": 3 },
+    { "name": "bedroom", "number": 0 },
+    { "name": "room1", "number": 0 },
+    { "name": "room2", "number": 0 },
+    { "name": "kitchen", "number": 0 }
+  ],
+  "KOCOM_PLUG_SIZE": [
+    { "name": "livingroom", "number": 0 },
+    { "name": "bedroom", "number": 0 },
+    { "name": "room1", "number": 0 },
+    { "name": "room2", "number": 0 },
+    { "name": "kitchen", "number": 0 }
+  ],
+  "KOCOM_ROOM": [
+    "livingroom",
+    "bedroom",
+    "room1",
+    "room2",
+    "kitchen"
+  ],
+  "KOCOM_ROOM_THERMOSTAT": [
+    "livingroom",
+    "bedroom",
+    "room1",
+    "room2"
+  ]
 }
