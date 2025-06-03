@@ -3,8 +3,8 @@
     "type": "Socket"
   },
   "Socket": {
-    "server": "192.168.0.9",       // EW11의 IP
-    "port": 8899                   // EW11의 포트
+    "server": "192.168.0.9",
+    "port": 8899
   },
   "SocketDevice": {
     "device": "kocom"
@@ -17,9 +17,9 @@
   },
   "MQTT": {
     "anonymous": false,
-    "server": "192.168.0.6",       // Mosquitto 브로커 IP
-    "username": "parting321",      // MQTT 사용자명
-    "password": "ghdwhsla1!"       // MQTT 비밀번호
+    "server": "192.168.0.6",
+    "username": "parting321",
+    "password": "ghdwhsla1!"
   },
   "Wallpad": {
     "light": true,
